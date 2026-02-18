@@ -1,0 +1,287 @@
+\documentclass{replab}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+% --- Información del documento ---
+\title{Práctica 1}
+
+
+\date{\today}
+\subtitle={Mediciones y errores}
+
+\subject={Laboratorio de Física 2}
+
+\setlength{\columnsep}{14pt}
+
+
+
+% --- Inicio del documento ---
+\begin{document}
+	
+	\pagestyle{fancy}
+	\unspacedoperators
+	
+% --- Título ---
+	\twocolumn[
+		\begin{center}{
+			\maketitle
+   \begin{tcolorbox}[colframe=white, colback=principaldos, arc=10pt]
+				\begin{onecolabstract}
+					Para esta práctica se realizó la toma de mediciones y la caracterización experimental de señales eléctricas periódicas mediante el uso de un generador de funciones, un osciloscopio y un multímetro digital. Se midieron parámetros fundamentales como el valor pico, el valor pico pico, el valor eficaz o valor RMS, el periodo y la frecuencia, por medio de tres métodos: réticula, cursores y medidas automáticas. Adicionalmente se analizaron señales senoidales en un rango de 60 $Hz$ a 6000 $Hz$, además de ondas triangulares y cuadradas. Los resultados mostraron una discrepancia significativa en la precisión de las mediciones dependiendo del método, puesto que mientras el método de las medidas automáticas presentó un error del 2.11 $\%$, el método de las retículas alcanzó un error del 35.59 $\%$. Asimismo se obtuvo un error del 71.31 $\%$ en la onda cuadrada, lo que evidenció limitaciones en los instrumentos de medición y principalmente el error humano. Se concluyó que la fiabilidad de las mediciones depende tanto de la técnica a usar, como de las características de los equipos de medición. 
+                    \medskip
+                    
+                    \textbf{Palabras clave}: Osciloscopio, Valor RMS, Error porcentual, Propagación de incertidumbre, Señales periódicas.
+					\medskip
+				\end{onecolabstract}
+			\end{tcolorbox}
+   }
+
+			\smallskip
+		\end{center}
+  ]
+
+	\selectlanguage{spanish}
+	
+
+	
+\section{Introducción}
+\subsection{Marco conceptual}
+En física, una onda es una perturbación periódica que viaja a través de un medio y que transfiere energía a través del espacio sin transferencia de materia \cite{serway2018fisica}. Estas ondas se pueden representar gráficamente como funciones del tiempo, pudiendo representar el voltaje, la corriente, la impedancia, el potencial, entre otras magnitudes. Para obtener información relevante de estas magnitudes físicas, se puede realizar un análisis matemático, que consiste en encontrar el valor medio y el valor medio cuadrático o eficaz de la onda. 
+\medskip
+Para una onda de función $y=y(t)$, el valor medio se define como el promedio de los valores de la onda en un intervalo de tiempo $T$
+
+\begin{equation}\label{ymed}
+    \bar{Y} = \dfrac{1}{T}\int_{T}y(t)dt
+\end{equation}
+
+De forma particular, se tiene que, para una onda sinusoidal pura, el valor medio será cero.
+
+\medskip
+
+El valor medio cuadrático o eficaz $Y_{RMS}$ se define, en cambio, como la media cuadrática de los valores de la onda para un intervalo de tiempo $T$
+
+\begin{equation}\label{yrms}
+    Y_{RMS} = \sqrt{\dfrac{1}{T}\int_{T}y^2(t)dt}
+\end{equation}
+
+De las ecuaciones \ref{ymed} y \ref{yrms} se pueden deducir expresiones generales para ciertos tipos de onda, como para una senoidal pura, donde el valor $V_{RMS}$ será
+
+\begin{equation}\label{yrmsS}
+    V_{RMS} = \dfrac{V_p}{\sqrt{2}}
+\end{equation}
+
+Donde $V_p$ es el valor pico de la onda. Así mismo, para las ondas cuadrada y triangular, se tiene que
+
+\begin{equation}\label{yrmsC}
+    V_{RMS_C} = V_p
+\end{equation}
+
+\begin{equation}\label{yrmsT}
+    V_{RMS_T} = \dfrac{V_p}{\sqrt{3}}
+\end{equation}
+
+\medskip
+
+Finalmente, para la propagación de errores, de forma general se tiene que la incertidumbre $\Delta Z$ para una función $Z = Z(A,B,...)$ es
+
+\begin{equation}\label{incert}
+    \Delta Z = \sqrt{ \left( \frac{\partial Z}{\partial A} \cdot \Delta A \right)^2 + \left( \frac{\partial Z}{\partial B} \cdot \Delta B \right)^2 + \dots } 
+\end{equation}
+
+
+\subsection{Metodología experimental}
+Para la parte práctica se utilizaron los siguientes materiales y equipos
+
+\begin{enumerate}
+    \item Osciloscopio.
+    \item Punta de prueba de osciloscopio.
+    \item Generador de funciones
+    \item Multímetro digital
+\end{enumerate}
+
+En primer lugar se conectó el generador de funciones al osciloscopio. Luego se conectó el multímetro en selección voltímetro a los terminales del generador de funciones. Se encendió el equipo y se seleccionó una onda senoidal de 60 $Hz$, luego se giró la perilla de amplitud hasta la mitad de su recorrido. Por medio del osciloscopio y las indicaciones del docente a cargo se midió el valor pico, el valor pico a pico y el periodo de la onda, junto a sus respectivas incertidumbres por el método de la retícula. 
+Luego con el multímetro digital se midieron los valores del voltaje medio $V_{DC}$, el valor $V_{RMS}$ y la frecuencia de la onda. 
+Se repitieron las mismas mediciones usando los métodos de los cursores y de las medidas automáticas. 
+Con el método de las medidas automáticas se repitieron las mediciones pero para frecuencias de 6 $Hz$, 600 $Hz$ y 6000 $Hz$.
+
+Finalmente se repitieron las mediciones para una onda cuadrada y una onda triangular a una frecuencia de 60 $Hz$ a la misma amplitud. 
+
+\subsection{Metodología analítica}
+Con los datos obtenidos del osciloscopio, se calculó el voltaje eficaz $V_{RMS}$ con su respectiva incertidumbre mediante las ecuaciones \ref{yrmsS}, \ref{yrmsC} y \ref{yrmsT}. Luego, tomando como valor real el valor medido en el voltímetro, se calculó el error porcentual del valor $V_{RMS}$, por medio de la ecuación \ref{Ep}
+
+\begin{equation}\label{Ep}
+    E\% = \dfrac{\mid v_T - v_R \mid}{v_R}\times100\%
+\end{equation}
+
+Luego, con los datos medidos a distintas frecuencias de la onda senoidal, se calculó el error porcentual del valor $V_{RMS}$ con respecto del valor medido con el osciloscopio.
+
+\section{Resultados y análisis de datos}
+
+Para la primera hoja donde se usó la placa paralela únicamente, se obtuvieron las siguientes lineas equipotenciales (líneas de color negro), $E_2 = 7.49, E_4 = 4.99, E_6 = 2.493$ y las líneas de color azul del campo eléctrico, que salen desde la carga positiva y llegan hacia la carga negativa y además son perpendiculares a las líneas equipotenciales.
+
+\includegraphics[scale=0.28]{Imagenes/lab3_1.jpeg}
+
+\subsection{Cálculo de las cargas puntuales}
+
+Para la placa que representa dos cargas puntuales se necesita deducir una fórmula para obtener las cargas que produjeron cada potencial ubicado en la hoja, pues entonces se tiene lo siguiente:\\
+
+
+Para un sistema de dos cargas puntuales de signo opuesto e igual magnitud, el potencial eléctrico total para cualquier punto del plano es:\\
+
+\begin{equation*}
+    V_{total} = V_1 + V_2 = kq(\frac{1}{|r - r_1|} - \frac{1}{|r - r_2|})
+\end{equation*}
+
+De donde se obtiene la ecuación:\\
+
+\begin{equation}
+    q = \frac{V}{k}\frac{d_1 d_2}{d_2 - d_1}
+\end{equation}
+
+Donde k es la constante de Coulumb, $d_1$ es la distancia de un punto hacia la carga positiva, y $d_2$ es la distancia del mismo punto hacia la carga negativa. Entonces ahora para calcular las cargar se obtuvieron los siguientes datos de la segunda hoja:\\
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{% % Escala la tabla al ancho de la columna
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Coordenadas obtenidas en \textbf{[cm]}}}\\ \hline
+    \textbf{(x,y)} & \textbf{(x,y)} & \textbf{(x,y)}\\ \hline
+    $(0.013, 0.077)$ &  $(0.019, 0.125)$ & $(0.025, 0.073)$ \\ \hline
+    $(0.032, 0.107)$ & $(0.053, 0.139)$ & $(0.060, 0.048)$ \\ \hline
+    $(0.070, 0.023)$ & $(0.077, 0.154)$ & $(0.078, 0.042)$ \\ \hline
+    $(0.089, 0.124)$ & $(0.101, 0.038)$ & $(0.106, 0.148)$ \\ \hline
+    $(0.120, 0.071)$ & $(0.129, 0.018)$ & $(0.130, 0.110)$ \\ \hline
+    $(0.140, 0.084)$ & $(0.144, 0.074)$ & $(0.145, 0.162)$ \\ \hline
+    $(0.150, 0.034)$ & $(0.173, 0.006)$ & $(0.175, 0.122)$ \\ \hline
+
+    $(0.175, 0.153)$ & $(0.186, 0.030)$ & $(0.200, 0.170)$ \\ \hline
+    $(0.206, 0.014)$ & $(0.212, 0.095)$ & $(0.223, 0.066)$ \\ \hline
+    $(0.235, 0.131)$ & $(0.249, 0.034)$ & $(0.255, 0.062)$ \\ \hline
+    \end{tabular}
+}
+\caption{Coordenadas para cada punto}
+\end{table}
+
+Las cargas puntuales tienen como coordenadas de referencia: Carga positiva: (0.095, 0.084), Carga negativa: (0.181, 0.083).\\
+
+Con estos datos ya podemos obtener las distancias mediante la siguiente fórmula:\\ 
+
+\begin{equation}
+    D = \sqrt{(D_x - d_{x_i})^2 + (D_y - d_{y_i})^2}
+\end{equation}
+
+Donde $D_x, D_y$ son las coordenadas de cada carga puntual. Una vez obtenidas las distancias podemos reemplazarlas en la ecuación (8) para obtener cada carga y se obtuvieron las siguientes cargas:\\ 
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{% % Escala la tabla al ancho de la columna
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{\textbf{Cargas obtenidas}}\\ \hline
+    5.5578e-11 & 5.8882e-11 & 4.4881e-11 & 4.1449e-11 & 4.2295e-11 \\ \hline
+    2.7954e-11 & 3.9696e-11 & 4.3952e-11 & 2.3526e-11 & 1.9322e-11 \\ \hline
+    2.3401e-11 & 3.3203e-11 & 1.0881e-11 & 6.5017e-11 & 1.4543e-11 \\ \hline
+    -2.0592e-13 & 4.8646e-12 & 4.2328e-11 & 1.0997e-11 & 3.3324e-11 \\ \hline
+    1.7019e-11 & 3.7351e-11 & 2.2130e-11 & 6.0144e-11 & 3.7747e-11 \\ \hline
+    1.7624e-11 & 2.3692e-11 & 4.2798e-11 & 4.8206e-11 & 4.6138e-11 \\ \hline
+    \hline
+    \end{tabular}
+}
+\caption{Cargas para cada punto}
+\end{table}
+
+Las incertidumbres respectivas para estas cargas son:\\ 
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{% % Escala la tabla al ancho de la columna
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{5}{|c|}{\textbf{Cargas obtenidas}}\\ \hline
+    9.5252e-13 & 1.0207e-12 & 8.2805e-13 & 7.9378e-13 & 8.7299e-13 \\ \hline
+    6.5623e-13 & 9.1508e-13 & 1.0521e-12 & 6.2326e-13 & 5.6606e-13 \\ \hline
+    7.3694e-13 & 1.1264e-12 & 5.0473e-13 & 7.2471e-12 & 1.1001e-12 \\ \hline
+    7.2858e-14 & 4.3364e-13 & 7.2145e-12 & 7.0725e-13 & 1.1268e-12 \\ \hline
+    5.5521e-13 & 1.2150e-12 & 6.0418e-13 & 1.4971e-12 & 8.5609e-13 \\ \hline
+    5.1918e-13 & 5.6787e-13 & 8.3491e-13 & 8.6434e-13 & 8.2222e-13 \\ \hline
+    \hline
+    \end{tabular}
+}
+\caption{Errores para cada carga de la \textbf{Tabla 2}}
+\end{table}
+
+Las incertidumbres se obtuvieron con la siguiente fórmula:\\
+
+\begin{equation}
+\begin{split}
+    \Delta Q = &\sqrt{(\frac{d_1d_2}{k (d_2 - d_1)}\Delta V)^2 + (\frac{V d_2^2}{k(d_2 - d_1)^2}\Delta d_1)^2\\
+    &+ (\frac{V d_1^2}{k(d_2 - d_1)^2}\Delta d_2)^2}
+\end{split}
+\end{equation}
+
+\subsection{Histograma}
+
+Con las cargas obtenidas se obtuvo el siguiente histograma de 6 bins y además se ubicó la media en el gráfico del histograma:\\
+
+\includegraphics[scale=0.4]{Imagenes/lab3_2.jpeg}
+
+Como se esperaría, las cargas tienden a estár más agrupadas hacia la media.
+
+\subsection{Análisis estadístico}
+
+Donde $\Delta d_1 = \Delta d_2 = 0.0007m$, y $\Delta V = 0.001V$
+\section{Conclusiones}
+Se determinó que el método de las mediciones automáticas del osciloscopio es significativamente más preciso que los métodos manuales. Mientras que el método de las retículas presentó un error del $35\%$, el sistema automático lo redujo hasta un $2.11\%$, demostrando que el procesamiento digital de señales minimiza en gran manera el error humano.  
+
+Se dedujo que la forma de la onda, es decir, su geometría, influye en la precisión de los instrumentos, puesto que la discrepancia significativa en los errores entre la onda cuadrada y la onda triangular sugiere que los equipos usados tienen limitaciones ante señales cuadradas. Sin embargo, se remarca que también puede deberse a errores en las mediciones, es decir, error humano. 
+
+También se comprobó que las expresiones matemáticas para los distintos tipos de señales son válidas y cómo el valor $V_{RMS}$ puede ofrecer mucha información sobre los distintos tipos de señales. 
+
+Finalmente se observó un descenso en el error en las ondas sinoidales al llegar a una frecuencia de 6000 $Hz$, lo que podría indicar que el equipo está mejor calibrado para trabajar a estas frecuencias. 
+
+La práctica permitió extender los conocimientos preexistentes sobre la toma de medidas en el laboratorio, así como reafirmar la importancia del cálculo de errores y la incertidumbre al realizar mediciones. Se caracterizaron señales eléctricas periódicas y se validaron las relaciones teóricas estudiadas, así como la importancia de la correcta selección de los equipos, el método a usar y el rigor en los cálculos matemáticos para la interpretación de sistemas físcos. 
+
+
+
+\newpage
+
+\onecolumn
+\printbibliography
+
+\newpage % Inicia los anexos en una página nueva
+\appendix
+\section{Deducciones de los Valores Eficaces ($V_{rms}$)}
+Deducciones matemáticas de los factores de escala utilizados para caracterizar las diferentes formas de onda empleadas en el laboratorio.
+
+\subsection{Onda Senoidal}
+Para una señal $v(t) = V_p \sin(\omega t)$, el valor eficaz se obtiene mediante:
+\begin{equation}
+V_{rms} = \sqrt{\frac{1}{T} \int_{0}^{T} [V_p \sin(\omega t)]^2 dt} = \frac{V_p}{\sqrt{2}}
+\end{equation}
+
+\subsection{Onda Cuadrada}
+Dado que el valor absoluto de la amplitud es constante ($|v(t)| = V_p$), la integral se simplifica directamente a:
+\begin{equation}
+V_{rms} = \sqrt{\frac{1}{T} \int_{0}^{T} V_p^2 dt} = V_p
+\end{equation}
+
+\subsection{Onda Triangular}
+Analizando la pendiente en el primer cuarto de ciclo y aplicando la definición de valor cuadrático medio:
+\begin{equation}
+V_{rms} = \sqrt{\frac{4}{T} \int_{0}^{T/4} \left( \frac{4V_p}{T}t \right)^2 dt} = \frac{V_p}{\sqrt{3}}
+\end{equation}
+
+
+
+\section{Representación en Serie de Fourier}
+La expansión de Fourier para la onda cuadrada de amplitud $V_p$ utilizada en la discusión de resultados es:
+\begin{equation}
+v(t) = \frac{4V_p}{\pi} \sum_{n=1,3,5...}^{\infty} \frac{1}{n} \sin(n\omega t)
+\end{equation}
+
+
+
+\end{document}
