@@ -222,6 +222,8 @@ Las incertidumbres se obtuvieron con la siguiente fórmula:\\
 \end{split}
 \end{equation}
 
+Donde $\Delta d_1 = \Delta d_2 = 0.0007m$, y $\Delta V = 0.001V$
+
 \subsection{Histograma}
 
 Con las cargas obtenidas se obtuvo el siguiente histograma de 6 bins y además se ubicó la media en el gráfico del histograma:\\
@@ -232,7 +234,14 @@ Como se esperaría, las cargas tienden a estár más agrupadas hacia la media.
 
 \subsection{Análisis estadístico}
 
-Donde $\Delta d_1 = \Delta d_2 = 0.0007m$, y $\Delta V = 0.001V$
+Para el análisis estadístico se obtienen primero la media y la desviación estándar, las cuales son: $\mu = 3.2958e-11, \sigma = 1.6667e-11$ respectivamente, y con esto podemos calcular el error estadístico cuya fórmula es:\\
+
+\begin{equation}
+    e\% = 100 x \frac{\sigma}{\mu \sqrt(n)}
+\end{equation}
+
+Entonces se obtuvo que el error estadístico es del 9.2325\%.
+
 \section{Conclusiones}
 Se determinó que el método de las mediciones automáticas del osciloscopio es significativamente más preciso que los métodos manuales. Mientras que el método de las retículas presentó un error del $35\%$, el sistema automático lo redujo hasta un $2.11\%$, demostrando que el procesamiento digital de señales minimiza en gran manera el error humano.  
 
